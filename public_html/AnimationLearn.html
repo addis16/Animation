@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">    
+<script>
+$(document).ready(function(){
+    $("#choose").click(function(){
+        $("#avatarContainer").slideDown("slow");
+    });
+});
+</script>      
+<style>   
+#big {
+    width: 100%;
+    height: flex;
+    display: none;
+    background-color: transparent;
+    border: 1px solid black;
+    border-radius: 3px;
+    position: absolute;
+}
+.avatarDiv {
+    height: 50px;
+    width: 50px;
+    border: 1px solid black;
+    display: inline-block;
+}
+#avatarContainer {
+    padding: 100px;
+    padding-top: 12px;
+    display: none;    
+}   
+#choose, #avatarContainer{
+    width: 100%;
+    border: 1px solid black;
+    height: auto;
+    
+    padding: 9px;
+}
+</style>    
+
+</head>
+<body>
+    
+
+    <div id="choose">Choose Avatar</div>    
+    <div id="avatarContainer">asdasd</div>
+    
+
+    
+
+</body>
+</html>

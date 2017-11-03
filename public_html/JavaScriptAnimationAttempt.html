@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">        
+<style>
+#element1 {
+    position: absolute;
+    top: 50px;
+    background: crimson;
+    width: 50px;
+    height: 50px;
+    border-radius: 3px;
+    
+}
+#element2 {
+    position: absolute;
+    top: 50px;
+    background: crimson;
+    width: 50px;
+    height: 50px;
+    border-radius: 3px;
+    float: left;
+}
+#element3 {
+    position: absolute;
+    top: 50px;
+    background: crimson;
+    width: 50px;
+    height: 50px;
+    border-radius: 3px;
+}
+#element4 {
+    position: absolute;
+    top: 50px;
+    background: crimson;
+    width: 50px;
+    height: 50px;
+    border-radius: 3px;
+}
+#element5 {
+    position: absolute;
+    top: 50px;
+    background: crimson;
+    width: 50px;
+    height: 50px;
+    border-radius: 3px;
+}
+#element6 {
+    position: absolute;
+    top: 50px;
+    background: crimson;
+    width: 50px;
+    height: 50px;
+    border-radius: 3px;
+}
+#element7 {
+    position: absolute;
+    top: 50px;
+    background: crimson;
+    width: 50px;
+    height: 50px;
+    border-radius: 3px;
+}
+#element8 {
+    position: absolute;
+    top: 50px;
+    background: crimson;
+    width: 50px;
+    height: 50px;
+    border-radius: 3px;
+}
+#element9 {
+    position: absolute;
+    top: 50px;
+    background: crimson;
+    width: 50px;
+    height: 50px;
+    border-radius: 3px;
+}
+#element10 {
+    position: absolute;
+    top: 50px;
+    background: crimson;
+    width: 50px;
+    height: 50px;
+    border-radius: 3px;
+}
+button {
+    height: 50px;
+    width: 65px;
+    background-color: crimson;
+    color: white;
+    border-radius: 2px;
+    margin-left: 60px;
+    margin-top: 400px;
+        
+}
+</style>
+</head>
+<body>
+<div id="vacuum"></div>    
+<div id="element1"></div>
+<div id="element2"></div>
+<div id="element3"></div>
+<div id="element4"></div>
+<div id="element5"></div>
+<div id="element6"></div>
+<div id="element7"></div>
+<div id="element8"></div>
+<div id="element9"></div>
+<div id="element10"></div>
+
+<button onclick="fuckingWork()">Run</button>
+
+<script>
+var element1 = document.getElementById('element1');
+var reqID;
+
+element1.style.left = "50px", element1.style.top = "100px";
+element2.style.left = "100px", element2.style.top = "100px";
+element3.style.left = "150px", element3.style.top = "100px";
+element4.style.left = "200px", element4.style.top = "100px";
+element5.style.left = "250px", element5.style.top = "100px";
+element6.style.left = "300px", element6.style.top = "100px";
+element7.style.left = "350px", element7.style.top = "100px";
+element8.style.left = "400px", element8.style.top = "100px";
+element9.style.left = "450px", element9.style.top = "100px";
+element10.style.left = "500px", element10.style.top = "100px";
+
+var i=0;
+function fuckingWork()
+{
+    if( i < 75){
+    i+=1;    
+    element5.style.top = (element5.offsetTop -=1) + 'px';
+    }
+    else if(i > 74 && i < 275){
+    i+=1;
+    element5.style.left = (element5.offsetLeft -=1) + 'px';
+    }
+    else if(i > 274 && i < 325){
+    i+=1;
+    element5.style.left = (element5.offsetLeft +=1) + 'px';
+    }
+    else if(i > 324 && i < 400){
+    i+=1;
+    element2.style.top = (element2.offsetTop +=1) + 'px';
+    }
+    else if(i > 74 && i < 275){
+    i+=1;
+    element5.style.left = (element5.offsetLeft -=1) + 'px';
+    }
+    else if(i > 74 && i < 275){
+    i+=1;
+    element5.style.left = (element5.offsetLeft -=1) + 'px';
+    }
+    else if(i > 74 && i < 275){
+    i+=1;
+    element5.style.left = (element5.offsetLeft -=1) + 'px';
+    }
+    else if(i > 74 && i < 275){
+    i+=1;
+    element5.style.left = (element5.offsetLeft -=1) + 'px';
+    }
+    
+    reqID = window.requestAnimationFrame(fuckingWork);
+    document.getElementById("iterator").innerHTML = i;
+    
+}
+</script>
+<p id="iterator"></p>
+</body>
+</html>
