@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+body {margin:40px; background: #666;}
+#my_canvas{ background:#FFF; border:#000 1px solid; }
+</style>
+<script>
+
+function initCanvas(){
+    var ctx = document.getElementById('my_canvas').getContext('2d');
+    var cW = ctx.canvas.width, cH = ctx.canvas.height;
+    var y = 0, x = 0;
+    
+    function elementObject() {
+        this.x=0,this.y=0;
+        this.render = function(ctx, rx, ry, rw, rh, clr) {
+            ctx.fillStyle = clr;
+            ctx.fillRect(rx, ry, rw, rh);    
+            
+        }
+    }
+    var element1 = new elementObject;
+    var element2 = new elementObject;
+    var element3 = new elementObject;
+    var element4 = new elementObject;
+    var element5 = new elementObject;
+    var element6 = new elementObject;
+    var element7 = new elementObject;
+    var element8 = new elementObject;
+    var element9 = new elementObject;
+    var element10 = new elementObject;
+        element1. x = 50,  element1.y = 100;
+        element2. x = 100, element2.y = 100;
+        element3. x = 150, element3.y = 100;
+        element4. x = 200, element4.y = 100;
+        element5. x = 250, element5.y = 100;
+        element6. x = 300, element6.y = 100;
+        element7. x = 350, element7.y = 100;
+        element8. x = 400, element8.y = 100;
+        element9. x = 450, element9.y = 100;
+        element10.x = 500, element10.y = 100;
+    function animate() {
+        ctx.clearRect(0,0, cW, cH);
+        element1.render (ctx,element1.x,  element1.y, 5, 5, "crimson");
+        element2.render (ctx,element2.x,  element2.y, 5, 5, "blue");
+        element3.render (ctx,element3.x,  element3.y, 5, 5, "orange");
+        element4.render (ctx,element4.x,  element4.y, 5, 5, "skyblue");
+        element5.render (ctx,element5.x,  element5.y, 5, 5, "yellow");
+        element6.render (ctx,element6.x,  element6.y, 5, 5, "brown");
+        element7.render (ctx,element7.x,  element7.y, 5, 5, "green");
+        element8.render (ctx,element8.x,  element8.y, 5, 5, "pink");
+        element9.render (ctx,element9.x,  element9.y, 5, 5, "purple");
+        element10.render(ctx,element10.x, element10.y, 5, 5, "red");
+        }
+    var animateInterval = setInterval(animate, 30);    
+}    
+window.addEventListener('load', function(event){
+    initCanvas();
+    
+});
+</script>    
+</head>
+<body>
+<canvas id="my_canvas" width="620" height="300"></canvas>
+</body>
+</html>

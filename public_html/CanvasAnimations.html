@@ -6,42 +6,44 @@ body {margin:40px; background: #666;}
 #my_canvas{ background:#FFF; border:#000 1px solid; }
 </style>
 <script>
+    
 
 function initCanvas(){
     var ctx = document.getElementById('my_canvas').getContext('2d');
-    var cW = ctx.canvas.width, cH = ctx.canvas.height;
-    var y = 0, x = 0;
+    var canvas = document.getElementById('my_canvas');
+    var y = 0, x = 0, v = 1;
     
-    function elementObject() {
+    function element() {
         this.x=0,this.y=0;
         this.render = function(ctx, rx, ry, rw, rh, clr) {
             ctx.fillStyle = clr;
-            ctx.fillRect(rx, ry, rw, rh);
-            
+            ctx.fillRect(rx, ry, rw, rh); 
         }
     }
-    var element1 = new elementObject;
-    var element2 = new elementObject;
-    var element3 = new elementObject;
-    var element4 = new elementObject;
-    var element5 = new elementObject;
-    var element6 = new elementObject;
-    var element7 = new elementObject;
-    var element8 = new elementObject;
-    var element9 = new elementObject;
-    var element10 = new elementObject;
-        element1. x = 50,  element1.y = 100;
-        element2. x = 100, element2.y = 100;
-        element3. x = 150, element3.y = 100;
-        element4. x = 200, element4.y = 100;
-        element5. x = 250, element5.y = 100;
-        element6. x = 300, element6.y = 100;
-        element7. x = 350, element7.y = 100;
-        element8. x = 400, element8.y = 100;
-        element9. x = 450, element9.y = 100;
-        element10.x = 500, element10.y = 100;
-    function animate() {
-        ctx.clearRect(0,0, cW, cH);
+    var element1 = new element;
+    var element2 = new element;
+    var element3 = new element;
+    var element4 = new element;
+    var element5 = new element;
+    var element6 = new element;
+    var element7 = new element;
+    var element8 = new element;
+    var element9 = new element;
+    var element10 = new element;
+    
+    element1. x = 50,  element1.y = 100;
+    element2. x = 100, element2.y = 100;
+    element3. x = 150, element3.y = 100;
+    element4. x = 200, element4.y = 100;
+    element5. x = 250, element5.y = 100;
+    element6. x = 300, element6.y = 100;
+    element7. x = 350, element7.y = 100;
+    element8. x = 400, element8.y = 100;
+    element9. x = 450, element9.y = 100;
+    element10.x = 500, element10.y = 100;
+    
+    function renderElements() {
+        
         element1.render (ctx,element1.x,  element1.y, 50, 50, "crimson");
         element2.render (ctx,element2.x,  element2.y, 50, 50, "blue");
         element3.render (ctx,element3.x,  element3.y, 50, 50, "orange");
@@ -52,22 +54,56 @@ function initCanvas(){
         element8.render (ctx,element8.x,  element8.y, 50, 50, "pink");
         element9.render (ctx,element9.x,  element9.y, 50, 50, "purple");
         element10.render(ctx,element10.x, element10.y, 50, 50, "red");
+        window.addEventListener('click', determine, false);
         
-        
-        element5.y--;
-        
-        
-        
-    }
-    var animateInterval = setInterval(animate, 30);    
-}    
-window.addEventListener('load', function(event){
-    initCanvas();
     
+    }
+    var animateInterval = setInterval(renderElements, 30);
+        function determine(evt) {
+        var pos = getMousePos(canvas, evt);
+        posx = pos.mouseX;
+        posy = pos.mouseY;
+        if (posy > element1.y && posy < element1.y + 50 && posx > element1.x && posx < element1.x + 50)   
+            {    
+            window.addEventListener('click', move, false);
+            }
+            function move(evt1) {
+                var pos1 = getMousePos(canvas, evt1);
+                pos1x = pos1.mouseX;
+                pos1y = pos1.mouseY;
+                if(element1.y < pos1y){
+                    element1.y = +element1.y + v;
+                 
+                }
+                requestAnimationFrame(move); 
+            }                       
+            requestAnimationFrame(determine);
+        }
+
+
+    
+   
+    
+    function getMousePos(canvas, evt) {
+    var rect = canvas.getBoundingClientRect();
+    return {
+      mouseX: evt.clientX - rect.left,
+      mouseY: evt.clientY - rect.top
+    };
+}
+    
+    
+}
+    
+window.addEventListener('load', function(evtload){
+    initCanvas();  
 });
+
+
+                     
 </script>    
 </head>
 <body>
-<canvas id="my_canvas" width="620" height="300"></canvas>
+<canvas id="my_canvas" width="620" height="1000"></canvas>
 </body>
 </html>

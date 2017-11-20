@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html>
+<style>
+</style>    
+<body>
+    <div id="images"></div>
+<canvas style="margin:0;padding:0;position:relative;left:50px;top:50px;" id="imgCanvas" width="250" height="250"></canvas>
+<script>
+var canvas = document.getElementById("imgCanvas");
+var context = canvas.getContext("2d");
+
+function initializeCanvas(){
+    var x1 = 0;
+    var y1 = 0;
+    
+    var element1 = new element;
+    
+
+
+
+function element() {
+    
+    this.render = function(context, rx, ry, rw, rh, clr) {
+        context.fillStyle = clr;
+        context.fillRect(rx, ry, rw, rh);
+        
+}    
+}
+function loadElements(){
+    
+    
+    
+    element1.render(context, x1, y1, 50, 50, "crimson");
+    
+    window.addEventListener('click', determine, false);
+    
+    function determine(evt) {
+    var pos = getMousePos(canvas, evt);
+    posx = pos.x;
+    posy = pos.y;
+    if (posy > y1 && posy < y1 + 50 && posx > x1 && posx < x1 + 50){
+        window.addEventListener('click', move, false);
+        function move(evt1) {
+           var pos1 = getMousePos(canvas, evt);
+            x1 +=1;
+            var animateInterval1 = setInterval(move, 30);
+        }                       
+            
+    }
+}
+    
+    
+}
+var animateInterval = setInterval(loadElements, 30);   }
+    
+window.addEventListener('load', function (event1){
+    initializeCanvas();
+    loadElements();
+});
+    
+function getMousePos(canvas, evt) {
+    var rect = canvas.getBoundingClientRect();
+    return {
+      mouseX: evt.clientX - rect.left,
+      mouseY: evt.clientY - rect.top
+    };
+}
+</script>    
+</body>    
+</html>

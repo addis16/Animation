@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html>
+<style>
+</style>    
+<body>
+    <div id="images"></div>
+<canvas style="margin:0;padding:0;position:relative;left:50px;top:50px;" id="imgCanvas" width="250" height="250"></canvas>
+<script>
+var canvas = document.getElementById("imgCanvas");
+var context = canvas.getContext("2d");
+
+function initializeCanvas(){
+    
+    var element1 = new element;
+    element1.x = 0;
+    element1.y = 0;
+
+
+
+function element() {
+    this.x = 0, this.y = 0;
+    this.render = function(context, rx, ry, rw, rh, clr) {
+        context.fillStyle = clr;
+        context.fillRect(rx, ry, rw, rh);
+        
+}    
+}
+function loadElements(){
+    
+    
+    
+    element1.render(context, element1.x, element1.y, 50, 50, "crimson");
+    
+    window.addEventListener('click', determine, false);
+    
+    function determine(evt) {
+    var pos = getMousePos(canvas, evt);
+    posx = pos.mouseX;
+    posy = pos.mouseY;
+    if (posy > element1.y && posy < element1.y + 50 && posx > element1.x && posx < element1.x + 50){
+        window.addEventListener('click', move);
+        function move(evt1) {
+            element1.render(context, element1.x+=1, element1.y, 50, 50, "crimson");
+        }                       
+            
+    }
+}
+    
+    
+}
+var animateInterval = setInterval(loadElements, 30);   }
+
+
+
+    
+function createImageOnCanvas(imageId) {
+    //canvas.style.display = "block";
+    //document.getElementById("images").style.overflowY = "hidden";
+    //var img = new Image(300, 300);
+    //img.src = document.getElementById(imageId).src;
+    //context.drawImage(img, (0), (0)); //onload....
+}
+
+function draw(evt) {
+    var pos = getMousePos(canvas, evt);
+    posx = pos.mouseX;
+    posy = pos.mouseY;
+    context.fillStyle = "#000000";
+    context.fillRect(posx-2, posy-2, 4, 4);
+}
+window.addEventListener('click', draw, false);
+
+window.addEventListener('load', function (event1){
+    initializeCanvas();
+    loadElements();
+});
+    
+
+function getMousePos(canvas, evt) {
+    var rect = canvas.getBoundingClientRect();
+    return {
+      mouseX: evt.clientX - rect.left,
+      mouseY: evt.clientY - rect.top
+    };
+}
+</script>    
+</body>    
+</html>
